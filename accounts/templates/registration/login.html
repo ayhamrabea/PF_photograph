@@ -1,0 +1,68 @@
+{% extends "bacs.html" %}
+{% load static %}
+{% load i18n %}
+  <!-- contact section -->
+
+  {% block content %}
+  <div class="sub_page">
+      {% include "parts/navbar.html" %} 
+      <section class="contact_section layout_padding">
+        <div class="container ">
+          <div class="">
+            <h2 class="">
+              {% trans "Login" %}
+            </h2>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              
+              <form method="POST">
+                {% csrf_token %}
+                {% include "common/form.html" with form=form %}
+                <button>
+                  {% trans "Login" %}
+                </button>
+                {% comment %} <div>
+                  <input type="text" placeholder="Name" />
+                </div>
+                <div>
+                  <input type="email" placeholder="Email" />
+                </div>
+                <div>
+                  <input type="text" placeholder="Phone Number" />
+                </div>
+                <div>
+                  <input type="text" class="message-box" placeholder="Message" />
+                </div>
+                <div class="d-flex ">
+                  <button>
+                    SEND
+                  </button> {% endcomment %}
+                </div>
+                
+              </form>
+            </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <img src="{% static 'images/contact-img.png' %}" alt="">
+                <div class="img_overlay">
+                  <h2>
+                    add <br>
+                    your <br>
+                    experience
+                  </h2>
+                  <a href="">
+                    Contact Us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+  {% endblock content %}
+
+  <!-- end contact section -->

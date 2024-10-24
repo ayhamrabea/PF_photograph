@@ -16,3 +16,6 @@ def portfolio(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+def add_comment(request):
+    return render(request,'add_comment.html')
