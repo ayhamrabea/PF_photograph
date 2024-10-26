@@ -45,9 +45,9 @@
                                   {{user.username}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'profile' %} ">{% trans "profile " %}</a></li>
                                   <li><hr class="dropdown-divider"></li>
-                                  <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans "logout" %}</a></li>
+                                  <li><a class="dropdown-item" href="{% url 'logout1' %}">{% trans "logout" %}</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -57,6 +57,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'login' %}">Login</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}">{% trans "register" %}</a>
+                              </li>
                         {% endif %}
                     </ul>
                     </div>
