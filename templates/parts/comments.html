@@ -29,54 +29,44 @@
                 </div>
                 <div class="detail-box">
                   <h4>
-                    Believable
+                    test
                   </h4>
                   <p>
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+                    sssadsadasd
                   </p>
                   <img src="{% static 'images/quote.png' %}" alt="">
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{% static 'images/client.png' %}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Believable
-                  </h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-                  </p>
-                  <img src="{% static 'images/quote.png' %}" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{% static 'images/client.png' %}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Believable
-                  </h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-                  </p>
-                  <img src="{% static 'images/quote.png' %}" alt="">
+            {% for com in comments %}
+              <div class="carousel-item ">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{% static 'images/client.png' %}" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h4>
+                      {{com.user.username}}
+                    </h4>
+                    <p>
+                      {{com.text}}
+                    </p>
+                    <img src="{% static 'images/quote.png' %}" alt="">
+                  </div>
                 </div>
               </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
 
         <form class="d-flex justify-content-center m-2">
-          <a href="{% url 'add_comment' %}" class="btn btn-warning rounded" type="submit">{% trans "Add comment" %} </a>
-          </form>
+          {% if user.is_authenticated %}
+            <a href="{% url 'add_comment' %}" class="btn btn-warning rounded" type="submit">{% trans "Add comment" %} </a>
+          {% else %}
+            <a href="{% url 'login' %}" class="btn btn-warning rounded" type="submit">{% trans "Add comment" %} </a>
+          {% endif %}
+        </form>
 
 
     </div>
